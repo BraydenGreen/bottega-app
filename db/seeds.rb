@@ -15,14 +15,16 @@
 
 end
 
-p "2 players created"
+p "8 players created"
 
 
-p "2 teams created"
+p "8 teams created"
 
-teams = Team.limit(2).order("RANDOM()")
-game = Game.find_or_create_by(game_type: 0, winner_id: teams.first.id, game_time: Time.now)
-game.teams << teams.first
-game.teams << teams.last
+40.times do 
+	teams = Team.limit(2).order("RANDOM()")
+	game = Game.find_or_create_by(game_type: 0, winner_id: teams.first.id, game_time: Time.now)
+	game.teams << teams.first
+	game.teams << teams.last
+end
 
-p "1 game created"
+p "40 games created"
