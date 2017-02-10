@@ -5,19 +5,21 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+
+    @players = Player.all
   end
 
   def create
     @game = Game.new(game_params)
       
-      team1 = Player.first.teams.create(name: "team1")
-      team2 = Player.second.teams.create(name: "team2")
+      team1 = Player.find(params[:game][:player1_name]).teams.create(name: "team1")
+      team2 = Player.find(params[:game][:player2_name]).teams.create(name: "team2")
 
       @game.game_time = Time.now
       @game.save
 
-      GameTeam.create(game: @game, team: team1)
-      GameTeam.create(game: @game, team: team2)
+      GameTeam.create(game: @game, team: team1, points: params[:game][:player1_score])
+      GameTeam.create(game: @game, team: team2, points: params[:game][:player2_score])
 
     respond_to do |format|
       if @game.save
