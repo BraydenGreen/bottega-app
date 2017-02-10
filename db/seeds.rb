@@ -7,12 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 2.times do |num|
+<<<<<<< HEAD
+  count = User.count+1
+  user = User.find_or_create_by(email: "test#{num+count}@test.com") do |user|
+    user.password = "asdfasdf"
+  end
+  user = Player.create(user: user)
+=======
 	count = User.count+1
 	user = User.find_or_create_by(email: "test#{num+count}@test.com") do |user|
 			user.password = "asdfasdf"
 		end
 	user = Player.create(user: user, username: "bobevans#{num+count}")
 
+>>>>>>> d13ec6bab50a117e0093df570545fb1dd456e999
 end
 
 p "2 players created"
