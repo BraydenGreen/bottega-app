@@ -6,33 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-2.times do |num|
-<<<<<<< HEAD
-  count = User.count+1
-  user = User.find_or_create_by(email: "test#{num+count}@test.com") do |user|
+8.times do |num|
+  user = User.find_or_create_by(email: "test#{num}@test.com") do |user|
     user.password = "asdfasdf"
   end
-  user = Player.create(user: user)
-=======
-	count = User.count+1
-	user = User.find_or_create_by(email: "test#{num+count}@test.com") do |user|
-			user.password = "asdfasdf"
-		end
-	user = Player.create(user: user, username: "bobevans#{num+count}")
-
->>>>>>> d13ec6bab50a117e0093df570545fb1dd456e999
+  player = Player.create!(user: user, username: "player#{num}")
+  team = Team.create!(name: "team#{num}")
+  player.teams << team
 end
 
-p "2 players created"
+p "8 players created"
+p "8 teams created"
 
-team1 = Player.first.teams.create(name: "team1")
-team2 = Player.second.teams.create(name: "team2")
+40.times do
+  teams = Team.limit(2).order("RANDOM()")
+  game = Game.find_or_create_by(game_type: 0, winner_id: teams.first.id, game_time: Time.now)
+  game.teams << teams.first
+  game.teams << teams.last
+end
 
-p "2 teams created"
-
-game = Game.create(game_time: Time.now)
-
-GameTeam.create(game: game, team: team1)
-GameTeam.create(game: game, team: team2)
-
-p "1 game created"
+p "40 games created"
