@@ -12,12 +12,9 @@
 		end
 	player = Player.create(user: user)
 	team = player.teams.create(name: "team#{num}")
-
 end
 
 p "8 players created"
-
-
 p "8 teams created"
 
 40.times do 
