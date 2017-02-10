@@ -1,4 +1,9 @@
 <h1>Leaderboard</h1>
+<%= render "new_match_button" %>
+
 <% @teams.each do |team| %>
 	<%= team.name %>
+  <% total_games = team.games.count %>
+  <% wins = team.games.where(winner_id: team.id).count %>
+  <%= wins %> - <%= total_games - wins %><br />
 <% end %>

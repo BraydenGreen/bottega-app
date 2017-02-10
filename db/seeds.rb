@@ -8,16 +8,17 @@
 
 8.times do |num|
   user = User.find_or_create_by(email: "test#{num}@test.com") do |user|
-      user.password = "asdfasdf"
-    end
-  player = Player.create(user: user)
-  team = player.teams.create(name: "team#{num}")
+    user.password = "asdfasdf"
+  end
+  player = Player.create!(user: user, username: "player#{num}")
+  team = Team.create!(name: "team#{num}")
+  player.teams << team
 end
 
 p "8 players created"
 p "8 teams created"
 
-40.times do 
+40.times do
   teams = Team.limit(2).order("RANDOM()")
   game = Game.find_or_create_by(game_type: 0, winner_id: teams.first.id, game_time: Time.now)
   game.teams << teams.first
