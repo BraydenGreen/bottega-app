@@ -1,48 +1,49 @@
 <%= form_for(game) do |f| %>
 
-
-
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 game-main">
+    <div class="col-sm-5 game-main">
       <div class="form-group">
-        <%= f.label :player1_name, "Add User" %>
-        <%= f.collection_select(:player1_name, @players, :id, :username,
-        {
-          include_blank: true
-        },
-        class: 'form-control'
-          )
-          %>
+        <%= f.collection_select(:player1_name, players, :id, :username, {include_blank: true, prompt: "Add User" }, class: 'form-control') %>
       </div>
-      <div class="form-group">
-        <%= f.label :player1_score, "Score" %>
-        <%= f.number_field :player1_score %>
-      </div>
+
     </div>
 
 
-    <div class="col-sm-6 game-main">
+    <div class="col-sm-2">
+      <h4 class="text-center">vs</h4>
+    </div>
+
+    <div class="col-sm-5">
       <div class="form-group">
-        <%= f.label :player2_name, "Add User" %>
-        <%= f.collection_select(:player2_name, @players, :id, :username,
-        {
-          include_blank: true
-        },
-        class: 'form-control'
-          )
-          %>
+        <%= f.collection_select(:player2_name, players, :id, :username, {include_blank: true, prompt: "Add User" }, class: 'form-control') %>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-5 game-main">
       <div class="form-group">
-        <%= f.label :player2_score, "Score" %>
-        <%= f.number_field :player2_score, require: true %>
+        <%= f.number_field :player1_score, placeholder: "Score" %>
+      </div>
+
+    </div>
+    
+    <div class="col-sm-2">
+      <h4 class="text-center">:</h4>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="form-group">
+        <%= f.number_field :player2_score, placeholder: "Score" %>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.submit "New Match", class: 'btn btn-block btn-primary' %>
       </div>
     </div>
   </div>
 </div>
 
-    <div class="form-group">
-      <%= f.submit "New Match", class: 'btn btn-primary' %>
-    </div>
-
-    <% end %>
+<% end %>

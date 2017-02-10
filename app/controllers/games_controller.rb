@@ -23,7 +23,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to new_game_path, notice: 'YOUR GAME SUCKS.' }
+        format.html { redirect_to games_path, notice: 'YOUR GAME SUCKS.' }
       else
         format.html { render :new }
       end
