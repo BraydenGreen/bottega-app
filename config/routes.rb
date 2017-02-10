@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :teams, only: [:index]
-  resources :games, only: [:new, :create]
+  resources :games, only: [:new, :create, :index]
+
   devise_for :users
   root to: 'static#home'
 end

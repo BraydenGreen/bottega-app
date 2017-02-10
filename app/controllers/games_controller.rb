@@ -1,4 +1,8 @@
 class GamesController < ApplicationController
+  def index
+    @teams = Team.all
+  end
+
   def new
     @game = Game.new
   end
