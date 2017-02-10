@@ -5,5 +5,4 @@ class Player < ApplicationRecord
   has_many :games, through: :teams
 
   validates_presence_of :username
-
 end
