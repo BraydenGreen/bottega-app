@@ -1,0 +1,49 @@
+<h1>Leaderboard</h1>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" 
+data-target="#myModal">Game Rules</button>
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Rules</h4>
+			</div>
+			<div class="modal-body">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tabbable" id="tabs-690706">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-280890" data-toggle="tab">Scoring</a>
+					</li>
+					<li>
+						<a href="#panel-743452" data-toggle="tab">Section 2</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-280890">
+						<ul>
+							<li>A match is played best 2 of 3 games. For each game, the first player to reach 11 points wins that game, however a game must be won by at least a two point margin.</li>
+						</ul>
+					</div>
+					<div class="tab-pane" id="panel-743452">
+						<p>
+							Howdy, I'm in Section 2.
+						</p>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+			
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+<% @teams.each do |team| %>
+<%= team.name %>
+<% end %>
