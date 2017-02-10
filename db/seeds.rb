@@ -11,7 +11,7 @@
 	user = User.find_or_create_by(email: "test#{num+count}@test.com") do |user|
 			user.password = "asdfasdf"
 		end
-	user = Player.create(user: user)
+	user = Player.create(user: user, username: "bobevans#{num+count}")
 
 end
 
