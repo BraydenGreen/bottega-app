@@ -1,11 +1,49 @@
 <%= form_for(game) do |f| %>
-  <% if game.errors.any? %>
-    <% game.errors.full_messages.each do |error| %>
-      <%= alert_generator error %>
-    <% end %>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.submit "Submit", class: 'btn btn-primary' %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 game-main">
+      <div class="form-group">
+        <%= f.collection_select(:player1_name, players, :id, :username, {include_blank: true, prompt: "Add User" }, class: 'form-control') %>
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-2">
+      <h4 class="text-center">vs</h4>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="form-group">
+        <%= f.collection_select(:player2_name, players, :id, :username, {include_blank: true, prompt: "Add User" }, class: 'form-control') %>
+      </div>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col-sm-5 game-main">
+      <div class="form-group">
+        <%= f.number_field :player1_score, placeholder: "Score" %>
+      </div>
+
+    </div>
+    
+    <div class="col-sm-2">
+      <h4 class="text-center">:</h4>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="form-group">
+        <%= f.number_field :player2_score, placeholder: "Score" %>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.submit "New Match", class: 'btn btn-block btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% end %>
