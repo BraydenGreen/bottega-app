@@ -18,8 +18,21 @@ class GamesController < ApplicationController
       @game.game_time = Time.now
       @game.save
 
-      GameTeam.create(game: @game, team: team1, points: params[:game][:player1_score])
-      GameTeam.create(game: @game, team: team2, points: params[:game][:player2_score])
+      player1_score = params[:game][:player1_score]
+      player2_score = params[:game][:player2_score]
+
+
+      GameTeam.create(game: @game, team: team1, points: player1_score)
+      GameTeam.create(game: @game, team: team2, points: player2_score)
+
+
+
+    if player1_score > player2_score
+      @game.winner = team1
+    else
+      @game.winner = team2
+    end
+
 
     respond_to do |format|
       if @game.save
