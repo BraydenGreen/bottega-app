@@ -1,9 +1,11 @@
+<header>
 <h1>Leaderboard</h1>
 
 
 
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-data-target="#myModal">Game Rules</button>
+<!-- <a link = data-target="#myModal">Game Rules</a> -->
+<a id="rules" data-toggle="modal"
+data-target="#myModal">Game Rules</a>
 <div id="myModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -12,32 +14,52 @@ data-target="#myModal">Game Rules</button>
 				<h4 class="modal-title">Rules</h4>
 			</div>
 			<div class="modal-body">
-	<div class="row">
+	<!-- <div class="row"> -->
 		<div class="col-md-12">
 			<div class="tabbable" id="tabs-690706">
-				<ul class="nav nav-tabs">
-					<li class="active">
-						<a href="#panel-280890" data-toggle="tab">Scoring</a>
+				<ul class="nav nav-tabs" >
+					<li role="presentation" class="active"></li>
+						<a href="#panel-1" data-toggle="tab">Scoring</a>
 					</li>
 					<li>
-						<a href="#panel-743452" data-toggle="tab">Section 2</a>
+						<a href="#panel-2" data-toggle="tab">Serves</a>
+					</li>
+					<li>
+						<a href="#panel-3" data-toggle="tab">Game Play</a>
 					</li>
 				</ul>
 				<div class="tab-content">
-					<div class="tab-pane active" id="panel-280890">
+					<div class="tab-pane active" id="panel-1">
 						<ul>
-							<li>A match is played best 2 of 3 games. For each game, the first player to reach 11 points wins that game, however a game must be won by at least a two point margin.</li>
+							<li>A match is played best 2 of 3 games. For each game, the first player to reach 11 points wins that game, however a game must be won by at least a two point margin.
+							</li>
+							<li>A point is scored after each ball is put into play (not just when the server wins the point as in volleyball).
+							</li>
+							<li>The edges of the table are part of the legal table surface.
+							</li>
 						</ul>
 					</div>
-					<div class="tab-pane" id="panel-743452">
-						<p>
-							Howdy, I'm in Section 2.
-						</p>
+					<div class="tab-pane" id="panel-2">
+						<ul>
+							<li>To determine the first server, rally ball, each hit is a letter in the word PING. Once PING is reached the first player to score serves. Player can’t serve over the table.  Each player serves for 2 points. On serve if the ball doesn’t go over the net, then it = other player point. If ball hits the net and goes over = LET
+							</li>
+							<li>LET = redo serve. If redo serve = LET other player gets point.
+							</li>
+							<li>On a serve, you must hit the ball to your side of the table.
+							</li>
+						</ul>
+					</div>
+					<div class="tab-pane" id="panel-3">
+						<ul>
+							<li>
+								Each player serves two points in a row and then switch server. However, if a score of 10-10 is reached in any game, then each server serves only one point and then the server is switched. After each game, the players switch side of the table. The ball must hit your side of the table before it is returned.
+							</li>
+						</ul>
 					</div>
 				</div>
 		</div>
 	</div>
-</div>
+<!-- </div> -->
 
 			</div>
 			<div class="modal-footer">
@@ -63,3 +85,4 @@ data-target="#myModal">Game Rules</button>
     <% end %>
   </table>
 </div>
+</header>

@@ -1,1 +1,17 @@
 @import "bootstrap";
+
+header {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#rules {
+	color: #3AE39F;
+	text-decoration: underline;
+	padding-top: 18px;
+	padding-left: 10px;
+}
+
+#rules:hover {
+	cursor: pointer;
+}
